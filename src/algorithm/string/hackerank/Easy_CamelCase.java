@@ -6,7 +6,7 @@ import java.io.*;
  *  input : camelCase 형태의 문자열
  *  output: 총 몇 개의 단어로 구성되어있는지 수 구하기
  */
-public class CamelCase {
+public class Easy_CamelCase {
 
     // 방법1: 아스키코드로 카운트 세기
     public static int camelcase(String s) {

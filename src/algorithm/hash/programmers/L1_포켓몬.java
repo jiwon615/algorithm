@@ -1,9 +1,7 @@
 package algorithm.hash.programmers;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * 박사님의 N/2개의 포켓몬을 데려갈 수 있다.

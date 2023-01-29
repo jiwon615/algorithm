@@ -1,11 +1,12 @@
 package algorithm.hash.programmers;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 /**
  * 핵심: 조합의 수 (공식 이해하기)
+ *
+ * 스파이가 매일 다른 옷을 조합하여 서로 다른 옷의 조합의 수를 return 하고자 함
  * 공식을 알면 쉽게 풀 수 있음.
  * ex) 상의의 수 A, 하의의 수 B면, 상하의 조합의 경우의 수는 A*B다
  * 이때 상의만 선택하고 하의는 선택하지 않을 수 있고 (A+1), 하의만 선택하고 상의는 선택하지 않을 수 있다 (B+1) => (A+1)*(B+1)

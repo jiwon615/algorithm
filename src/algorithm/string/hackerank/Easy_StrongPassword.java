@@ -34,21 +34,21 @@ public class Easy_StrongPassword {
         boolean hasLowerCase = false; // 소문자 여부
         boolean hasSpecialChar = false; // 특별기호 여부
 
-        char[] pwCharArr = password.toCharArray();
-        for (int i=0; i<pwCharArr.length; i++) {
-            if (Character.isUpperCase(pwCharArr[i])) {
+        for (int i=0; i<passwordLength; i++) {
+            char c = password.charAt(i);
+            if (c >= 'A' && c <= 'Z') {  // Character.isUpperCase(c) 가능
                 hasUpperCase = true;
             }
 
-            if (Character.isLowerCase(pwCharArr[i])) {
+            if (c >= 'a' && c <= 'z') { // Character.isLowerCase(c) 가능
                 hasLowerCase = true;
             }
 
-            if (Character.isDigit(pwCharArr[i])) {
+            if (c >= '0' && c <= '9') {  // Character.isDigit(c) 가능
                 hasDigit = true;
             }
 
-            if (specialCharacters.contains(String.valueOf(pwCharArr[i]))) {
+            if (specialCharacters.contains(String.valueOf(c))) {
                 hasSpecialChar = true;
             }
         }
@@ -60,7 +60,6 @@ public class Easy_StrongPassword {
         if (!hasSpecialChar) minimumCnt++;
 
         int newPwCnt = passwordLength + minimumCnt;
-        if (newPwCnt >= minLength) return minimumCnt;
-        return minimumCnt + (minLength - newPwCnt);
+        return newPwCnt >= minLength ? minimumCnt : minimumCnt + (minLength - newPwCnt);
     }
 }

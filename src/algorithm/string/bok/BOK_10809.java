@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.util.StringJoiner;
 
 /**
+ * 핵심: 아스키 코드 관련
  * 각 알파벳의 위치를 출력 (a~z까지)
  * input : baekjoon
  * output : 1 0 -1 -1 2 -1 -1 -1 -1 4 3 -1 -1 7 5 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1

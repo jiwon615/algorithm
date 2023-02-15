@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
+ * 핵심: 아스키 코드 관련
  * 대소문자, 숫자0-9 중 하나가 주어졌을 때 아스키 코드값 출력
  * input : A
  * output : 65

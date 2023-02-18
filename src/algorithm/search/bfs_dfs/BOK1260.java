@@ -15,7 +15,8 @@ public class BOK1260 {
     static LinkedList<Integer>[] nodeList;
     static StringBuilder dfsSb = new StringBuilder();
     static StringBuilder bfsSb = new StringBuilder();
-
+    static boolean[] isDfsVisited;
+    static boolean[] isBfsVisited;
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -27,8 +28,8 @@ public class BOK1260 {
 
         // 노드리스트 세팅
         nodeList = new LinkedList[nodeCount+1];
-        boolean[] isDfsVisited = new boolean[nodeCount+1];
-        boolean[] isBfsVisited = new boolean[nodeCount+1];
+        isDfsVisited = new boolean[nodeCount+1];
+        isBfsVisited = new boolean[nodeCount+1];
         for(int i=0; i < nodeCount+1; i++){
             nodeList[i] = new LinkedList();
         }
@@ -44,41 +45,39 @@ public class BOK1260 {
             Collections.sort(nodeList[node2]);
         }
 
-        doDfs(startNode, isDfsVisited);
-        doBfs(startNode, isBfsVisited);
+        doDfs(startNode);
+        doBfs(startNode);
 
         System.out.println(dfsSb);
         System.out.println(bfsSb);
     }
 
-    static void doDfs(int currentNode, boolean[] isVisited) {
-        if (isVisited[currentNode]) {
-            return;
-        }
+    // 시작점을 시작으로, 다음 방문 안한 인접 노드연결점을 찾아 시작점을 변경하여 재귀호출
+    static void doDfs(int currentNode) {
+        dfsSb.append(currentNode + " "); // 현재 방문한 값 추가
+        isDfsVisited[currentNode] = true; // 방문 완료 체크
 
-        isVisited[currentNode] = true;
-        dfsSb.append(currentNode + " ");
-
-        for (int nexNode : nodeList[currentNode]) {
-            doDfs(nexNode, isVisited);
+        for (int adjNode : nodeList[currentNode]) { // 인접노드 돌며 미방문된 노드가 없을 때까지 위 과정 반복 (방문하는 노드 추가 및 방문완료 체크)
+           if (!isDfsVisited[adjNode]) {
+               doDfs(adjNode); // 다음 방문할 노드 값으로 바꾸어 재귀 실행
+           }
         }
     }
 
-    static void doBfs(int startNode, boolean[] isVisited) {
+    static void doBfs(int startNode) {
         Queue<Integer> queue = new LinkedList<>();
-        queue.offer(startNode);
-        isVisited[startNode] = true;
+        queue.offer(startNode); // 현재 방문한 값 추가
+        isBfsVisited[startNode] = true; // 방문 완료 체크
 
         while(!queue.isEmpty()) {
             int currentNode = queue.poll();
             bfsSb.append(currentNode + " ");
 
-            for (int i=0;i<nodeList[currentNode].size(); i++) {
-                int adjNode = nodeList[currentNode].get(i);
-
-                if (!isVisited[adjNode]) {
-                    queue.offer(adjNode);
-                    isVisited[adjNode] = true;
+            // queue 가 empty 될 때까지 반복하고 방문 정점을 확인, 출력 후 queue 에 넣어 순서대로 확인해줌
+            for (int i : nodeList[currentNode]) {
+                if (!isBfsVisited[i]) {
+                    queue.add(i);
+                    isBfsVisited[i] = true;
                 }
             }
         }

@@ -8,6 +8,10 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
+/**
+ * DFS와 BFS
+ * - 그래프를 DFS와 BFS로 탐색한 결과를 각각 출력
+ */
 public class BOK1260 {
 
     static int nodeCount; // 정점의 개수

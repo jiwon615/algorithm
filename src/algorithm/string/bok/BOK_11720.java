@@ -25,6 +25,7 @@ public class BOK_11720 {
         System.out.println(result);
     }
 
+    // charAt 사용
     public static int sumAllNumbers(String numberStr, int n) {
         int sum = 0;
         for (int i=0; i<n; i++) {
@@ -32,6 +33,21 @@ public class BOK_11720 {
             sum = sum + numberStr.charAt(i) - '0';  // char -> int 위해 '0' 해줌 (int로 변환없이 하면 해당 예시 15 아닌 255가 나옴)
            // sum = sum + numberStr.charAt(i) - 48;
         }
+        return sum;
+    }
+
+    // charArray로 변환 처리
+    public static int sumAllNumbers2(String numberStr, int n) {
+        // 문자열을 charArray로 변환
+        char[] numChArr = numberStr.toCharArray();
+
+        // charArray for문 돌며 각 sum 합산
+        int sum = 0;
+        for (int i=0; i<numberStr.length(); i++) {
+            sum += numChArr[i] - '0';
+        }
+
+        // sum 리턴
         return sum;
     }
 }

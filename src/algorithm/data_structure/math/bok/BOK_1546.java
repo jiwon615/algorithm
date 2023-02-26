@@ -1,4 +1,4 @@
-package algorithm.math.bok;
+package algorithm.data_structure.math.bok;
 
 import java.io.BufferedReader;
 import java.io.IOException;

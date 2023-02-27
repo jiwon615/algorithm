@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 /**
- * 구간 합 구하기
+ * 구간 합 구하기4
  *
  * 합배열 정의: S[i] = A[0] + A[1] + A[2] + … + A[i-1] + A[i]   // A[0] 부터 A[i] 까지의 합
  * 합배열 공식: S[i] = S[i-1] + A[i]

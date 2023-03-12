@@ -35,7 +35,7 @@ public class BOK1260 {
         isDfsVisited = new boolean[nodeCount+1];
         isBfsVisited = new boolean[nodeCount+1];
         for(int i=0; i < nodeCount+1; i++){
-            nodeList[i] = new LinkedList();
+            nodeList[i] = new LinkedList(); // 인접 리스트 초기화
         }
 
         for (int i=0; i<edgeCount; i++) {

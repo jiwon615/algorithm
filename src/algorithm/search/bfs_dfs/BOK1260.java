@@ -45,6 +45,7 @@ public class BOK1260 {
             nodeList[node1].add(node2);
             nodeList[node2].add(node1);
 
+            // 작은 노드부터 탐색한다고 했으므로 오름차순 정렬
             Collections.sort(nodeList[node1]);
             Collections.sort(nodeList[node2]);
         }
